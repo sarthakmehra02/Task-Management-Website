@@ -1,0 +1,328 @@
+/* General Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Authentication Pages */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.auth-form-wrapper {
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-form h2 {
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--light-text-color);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--secondary-color);
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #5a52e0;
+}
+
+.auth-switch {
+  margin-top: 24px;
+  font-size: 14px;
+}
+
+.auth-switch a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Dashboard */
+.dashboard-container {
+  display: flex;
+  padding: 30px;
+  gap: 30px;
+  flex-grow: 1;
+}
+
+/* Header */
+.header {
+  padding: 20px 30px;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+.header button {
+  background: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Task List */
+.task-list-container {
+  flex: 1;
+  min-width: 350px;
+  max-width: 450px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+}
+
+.task-list-header {
+  margin-bottom: 20px;
+}
+.task-list-header h2 {
+  margin: 0 0 5px 0;
+}
+.task-list-header p {
+  color: var(--light-text-color);
+  font-size: 14px;
+  margin: 0;
+}
+.task-list-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.task-list-controls select,
+.task-list-controls input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+.task-list-controls button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Task Item */
+.task-item {
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+}
+.task-item:hover {
+  background-color: #e0dffe;
+}
+.task-item.active {
+  border-color: var(--primary-color);
+  background-color: #e0dffe;
+}
+.task-item h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+.task-item p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--light-text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.task-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--light-text-color);
+}
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  background-color: var(--pending-bg);
+  color: var(--pending-text);
+}
+
+
+/* Task Editor */
+.task-editor-container {
+  flex: 2;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+.task-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.task-editor-header h2 {
+  margin: 0;
+}
+.task-editor-header input[type="text"] {
+    font-size: 24px;
+    font-weight: 600;
+    border: none;
+    padding: 0;
+    width: 100%;
+}
+.task-editor-header input[type="text"]:focus {
+    outline: none;
+}
+/* Add this to App.css to debug and fix the layout */
+
+.editor-buttons {
+  /* This is our debug border */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.editor-buttons button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  margin: 0; /* Add this to remove any default margins */
+}
+.edit-btn {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.save-btn {
+background: var(--primary-color);
+color: white;
+
+}
+
+.delete-btn {
+background: #fdecec;
+color: #f16464;
+}
+
+.task-editor-content textarea {
+  width: 100%;
+  height: 300px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  resize: vertical;
+}
+.task-editor-content textarea:disabled {
+  background-color: transparent;
+  border-color: transparent;
+  padding: 16px 0;
+  resize: none;
+  color: var(--text-color);
+}
+
+.task-editor-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--light-text-color);
+  text-align: center;
+}
+
+/* Spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: var(--primary-color);
+  animation: spin 1s ease infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+  .task-list-container {
+    max-width: 100%;
+    min-width: unset;
+  }
+}

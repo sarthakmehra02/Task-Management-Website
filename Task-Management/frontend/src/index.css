@@ -1,0 +1,28 @@
+:root {
+  --bg-color: #F7F8FC;
+  --primary-color: #6C63FF;
+  --secondary-color: #EAEAFB;
+  --text-color: #33374d;
+  --light-text-color: #9fa2b4;
+  --card-bg: #FFFFFF;
+  --border-color: #dfe0eb;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --border-radius: 12px;
+  --pending-bg: #fef4e6;
+  --pending-text: #f5a623;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+* {
+  box-sizing: border-box;
+}
