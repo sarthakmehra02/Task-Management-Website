@@ -1,5 +1,3 @@
-// backend/index.js
-
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -8,8 +6,29 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
+// --- Middleware ---
+
+// --- THIS IS THE UPDATED CORS CONFIGURATION ---
+const allowedOrigins = [
+  'http://localhost:3000',                      // For local development
+  'https://taskmanagementsarthak.netlify.app'   // Your live frontend URL
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+  }
+};
+
+app.use(cors(corsOptions));
+// --- END OF CORS CONFIGURATION ---
+
 app.use(express.json());
 
 // --- ROUTES ---
