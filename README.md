@@ -13,8 +13,6 @@ A secure, full-stack task management web app with login/signup, JWT auth, MongoD
 
 ## 📸 Screenshots
 
-> Add these images to your `screenshots/` folder inside the repo.
-
 ### 🔐 Login Page  
 <img src="screenshots/login.png" width="400"/>
 
