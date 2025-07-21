@@ -1,11 +1,10 @@
-/* General Layout */
+
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Authentication Pages */
 .auth-container {
   display: flex;
   justify-content: center;
@@ -84,7 +83,6 @@
   text-decoration: none;
 }
 
-/* Dashboard */
 .dashboard-container {
   display: flex;
   padding: 30px;
@@ -92,7 +90,6 @@
   flex-grow: 1;
 }
 
-/* Header */
 .header {
   padding: 20px 30px;
   background-color: var(--card-bg);
@@ -115,7 +112,6 @@
   font-weight: 600;
 }
 
-/* Task List */
 .task-list-container {
   flex: 1;
   min-width: 350px;
@@ -159,7 +155,6 @@
   cursor: pointer;
 }
 
-/* Task Item */
 .task-item {
   padding: 16px;
   margin-bottom: 12px;
@@ -205,7 +200,6 @@
 }
 
 
-/* Task Editor */
 .task-editor-container {
   flex: 2;
   background: var(--card-bg);
@@ -232,10 +226,8 @@
 .task-editor-header input[type="text"]:focus {
     outline: none;
 }
-/* Add this to App.css to debug and fix the layout */
 
 .editor-buttons {
-  /* This is our debug border */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -247,7 +239,7 @@
   border: none;
   cursor: pointer;
   font-weight: 500;
-  margin: 0; /* Add this to remove any default margins */
+  margin: 0; 
 }
 .edit-btn {
   background: var(--secondary-color);
@@ -292,7 +284,6 @@ color: #f16464;
   text-align: center;
 }
 
-/* Spinner */
 .spinner-container {
   display: flex;
   justify-content: center;
@@ -316,7 +307,6 @@ color: #f16464;
   }
 }
 
-/* Responsive */
 @media (max-width: 992px) {
   .dashboard-container {
     flex-direction: column;

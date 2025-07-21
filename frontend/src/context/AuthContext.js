@@ -12,9 +12,6 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-        // Here you would ideally have an endpoint to verify the token and get user data
-        // For simplicity, we'll assume the token is valid if it exists.
-        // A better approach: call an endpoint like /api/users/me
         setUser({ token }); 
     }
     setLoading(false);
@@ -28,7 +25,6 @@ export const AuthProvider = ({ children }) => {
       navigate('/');
     } catch (error) {
       console.error("Login failed:", error);
-      // You can add state to show an error message to the user
       throw error;
     }
   };

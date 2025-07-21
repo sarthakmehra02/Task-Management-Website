@@ -1,4 +1,3 @@
-// backend/routes/user.js
 
 const router = require('express').Router();
 const User = require('../models/user.model');
@@ -62,33 +61,23 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Add this code block to backend/routes/user.js
-
-// @route   POST /api/users/login
-// @desc    Authenticate user & get token
-// @access  Public
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Simple validation
     if (!email || !password) {
       return res.status(400).json({ msg: 'Please enter all fields' });
     }
-
-    // Check for existing user
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ msg: 'Invalid credentials' });
     }
 
-    // Validate password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ msg: 'Invalid credentials' });
     }
 
-    // Create and sign JWT
     const token = jwt.sign(
       { id: user._id },
       process.env.JWT_SECRET,
@@ -108,7 +97,5 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ msg: 'Server Error' });
   }
 });
-
-// You will add the /login route here later
 
 module.exports = router;

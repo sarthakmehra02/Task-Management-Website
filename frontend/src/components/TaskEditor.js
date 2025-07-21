@@ -6,7 +6,7 @@ const TaskEditor = ({ task, onSave, onDelete }) => {
 
   useEffect(() => {
     setEditedTask(task);
-    setIsEditing(false); // Reset editing mode when a new task is selected
+    setIsEditing(false); 
   }, [task]);
 
   if (!task) {
