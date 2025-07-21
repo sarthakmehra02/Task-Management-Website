@@ -1,6 +1,6 @@
 # 🗂️ Task Management Website
 
-A full-stack task management web app with a modern React + Redux frontend and a Node.js + Express backend. Users can manage tasks with status, priority, filters, and timestamps — all in a clean, responsive UI.
+A secure, full-stack task management web app built with a modern React + Redux frontend and a Node.js + Express backend. Includes JWT-based authentication, MongoDB database integration, full task editing, filtering, and priority control in a clean, responsive UI.
 
 ---
 
@@ -11,32 +11,48 @@ A full-stack task management web app with a modern React + Redux frontend and a 
 
 ---
 
+## 📸 Screenshots
+
+> ✨ Add your screenshots in this section by placing them inside a `screenshots/` folder and using the syntax below:
+
+```
+![Login Page](frontend/screenshots/login.png)
+![Sign Up Page](frontend/screenshots/sign.png)
+![Task Assignment](frontend/screenshots/Task%20Assignment.png)
+![Edit Task Modal](frontend/screenshots/Screenshot%202025-07-21%20135132.png)
+```
+
+---
+
 ## 📁 Project Structure
 
-- `frontend/` – React + Redux Toolkit frontend (UI, logic, filters)
-- `backend/` – Node.js + Express backend API (task routes)
+- `frontend/` – React + Redux Toolkit app (UI, auth, task logic)
+- `backend/` – Node.js + Express + MongoDB API
 - `README.md` – Project documentation (this file)
 
 ---
 
 ## ✨ Features
 
-### Frontend
-- Add, delete, and complete tasks
-- Set due dates and priorities
-- Mark tasks as complete (with completion timestamp)
-- Filter tasks by **status** and **priority**
-- Responsive design (Tailwind CSS)
-- State management with Redux Toolkit
+### 🔹 Frontend
+- User login and signup with JWT authentication
+- Add, delete, and **edit** tasks
+- Set task **priority**, **due date**, and **status**
+- Mark tasks as complete with timestamp
+- Filter by **status** and **priority**
+- Fully responsive design with Tailwind CSS
+- State management using Redux Toolkit
 
-### Backend
-- RESTful API built with Express.js
-- JSON-based task operations (GET, POST, DELETE, etc.)
-- Extendable to real databases (MongoDB, PostgreSQL)
+### 🔹 Backend
+- Node.js + Express REST API
+- MongoDB with Mongoose for persistent storage
+- User registration and login with **JWT**
+- Protected routes for task operations
+- Task schema includes: title, description, status, priority, date, completedAt
 
 ---
 
-## 🚀 Getting Started (Local Development)
+## 🚀 Getting Started (Local Setup)
 
 ### 1. Clone the Repository
 
@@ -55,13 +71,11 @@ npm install
 npm run dev
 ```
 
-Runs at: [http://localhost:5173](http://localhost:5173)
-
 ---
 
 ### 3. Run the Backend
 
-Open a new terminal:
+Open another terminal:
 
 ```bash
 cd backend
@@ -69,25 +83,30 @@ npm install
 npm start
 ```
 
-Runs at: [http://localhost:3000](http://localhost:3000)
+> ⚠️ Make sure to configure your `.env` file in the `backend/` directory with your MongoDB URI and JWT secret:
+
+```
+MONGODB_URI=your_mongo_connection_string
+JWT_SECRET=your_jwt_secret
+```
 
 ---
 
 ## 🧩 Future Improvements
 
-- [ ] Add user authentication (JWT or OAuth)
-- [ ] Integrate with MongoDB/PostgreSQL
-- [ ] Edit existing tasks
-- [ ] Add drag-and-drop support
-- [ ] Enable due-date reminders or notifications
+- [ ] Add user avatars
+- [ ] Export tasks (CSV, PDF)
+- [ ] Push notifications / reminders
+- [ ] Drag-and-drop task reordering
+- [ ] Dark mode toggle
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork this repo
+1. Fork this repository
 2. Create a branch: `git checkout -b feature/my-feature`
-3. Make your changes and commit: `git commit -m "Add new feature"`
+3. Commit your changes: `git commit -m "Add feature"`
 4. Push to GitHub: `git push origin feature/my-feature`
 5. Open a Pull Request
 
