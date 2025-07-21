@@ -102,6 +102,3 @@ GitHub: [@sarthakmehra02](https://github.com/sarthakmehra02)
 
 ---
 
-## 🪪 License
-
-MIT License
