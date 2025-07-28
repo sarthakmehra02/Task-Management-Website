@@ -1,9 +1,8 @@
-
-
 const router = require('express').Router();
 const Task = require('../models/task.model');
 const auth = require('../middleware/auth'); 
 
+// GET ALL TASKS
 router.get('/', auth, async (req, res) => {
     try {
         const tasks = await Task.find({ user: req.user.id }).sort({ createdAt: -1 });
@@ -14,6 +13,7 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
+// CREATE A NEW TASK
 router.post('/', auth, async (req, res) => {
   try {
     const { title, description, category } = req.body;
@@ -23,7 +23,6 @@ router.post('/', auth, async (req, res) => {
       category,
       user: req.user.id, 
     });
-
     const savedTask = await newTask.save();
     res.status(201).json(savedTask);
   } catch (err) {
@@ -32,36 +31,43 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-
+// UPDATE A TASK
 router.put('/:id', auth, async (req, res) => {
   try {
     const { title, description, category, status } = req.body;
-
     const taskFields = {};
     if (title) taskFields.title = title;
     if (description) taskFields.description = description;
     if (category) taskFields.category = category;
     if (status) taskFields.status = status;
-
     let task = await Task.findById(req.params.id);
-
     if (!task) {
       return res.status(404).json({ msg: 'Task not found' });
     }
-
     if (task.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: 'User not authorized' });
     }
-
     task = await Task.findByIdAndUpdate(
       req.params.id,
       { $set: taskFields },
       { new: true }
     );
-
     res.json(task);
   } catch (err) {
     console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const task = await Task.findOneAndDelete({ _id: req.params.id, user: req.user.id });
+    if (!task) {
+        return res.status(404).json({ msg: 'Task not found or user not authorized' });
+    }
+    res.json({ msg: 'Task deleted successfully' });
+  } catch (err) {
+    console.error("Error deleting task:", err.message);
     res.status(500).send('Server Error');
   }
 });
